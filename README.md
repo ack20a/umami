@@ -1,6 +1,6 @@
 # umami
 
-Umami is a simple, fast, website analytics alternative to Google Analytics.
+umami is a simple, fast, website analytics alternative to Google Analytics.
 
 ## Getting started
 
