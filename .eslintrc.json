@@ -2,10 +2,14 @@
   "env": {
     "browser": true,
     "es2020": true,
-    "node": true,
-    "jest": true
+    "node": true
   },
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "next"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -15,37 +19,30 @@
   },
   "settings": {
     "import/resolver": {
-      "node": {
-        "moduleDirectory": ["node_modules", "src/"]
+      "alias": {
+        "map": [
+          ["assets", "./assets"],
+          ["components", "./components"],
+          ["db", "./db"],
+          ["hooks", "./hooks"],
+          ["lang", "./lang"],
+          ["lib", "./lib"],
+          ["public", "./public"],
+          ["queries", "./queries"],
+          ["store", "./store"],
+          ["styles", "./styles"]
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".json"]
       }
     }
   },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/typescript",
-    "plugin:css-modules/recommended",
-    "plugin:cypress/recommended",
-    "prettier",
-    "next"
-  ],
-  "plugins": ["@typescript-eslint", "prettier", "promise", "css-modules", "cypress"],
   "rules": {
     "no-console": "error",
     "react/display-name": "off",
-    "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "import/no-anonymous-default-export": "off",
-    "import/no-named-as-default": "off",
-    "@next/next/no-img-element": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }]
+    "@next/next/no-img-element": "off"
   },
   "globals": {
     "React": "writable"
